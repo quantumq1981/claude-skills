@@ -1,5 +1,3 @@
-EPK-SKILL.MD
-
 ---
 name: generating-corporate-gig-epks
 description: Generates Electronic Press Kits (EPKs) for high-volume corporate, wedding, and casino-lounge gigging artists. Use when a working musician or bandleader needs a booking-focused press kit for talent buyers, casino entertainment directors, corporate event planners, or wedding coordinators — prioritizing compliance, scalability, and repertoire over artistic narrative or streaming metrics.
@@ -11,10 +9,12 @@ description: Generates Electronic Press Kits (EPKs) for high-volume corporate, w
 
 Collect artist data using the schema below, then generate a one-to-two-page EPK structured for talent buyer skimmability (10-15 second scan time). Lead with compliance/risk signals, not bio.
 
+The JSON below is an **illustrative template** — every value is a fictional example ("The Steel City Revue") to show the shape of the data. Replace all of it with the real artist's own verified facts. Never keep sample venues, counts, or compliance flags; and never attribute one artist's data to another artist's name.
+
 ```json
 {
   "artist_identity": {
-    "primary_name": "Chris Zemba Band",
+    "primary_name": "The Steel City Revue",
     "market_location": "Pittsburgh, PA",
     "experience_years": 18,
     "roles": "Bandleader, Guitarist, Vocalist"
@@ -41,6 +41,14 @@ Collect artist data using the schema below, then generate a one-to-two-page EPK 
     "self_contained_pa": true,
     "max_venue_capacity_handled": 500,
     "max_set_length_hours": 4
+  },
+  "proof_and_media": {
+    "live_video_urls": ["https://youtube.com/..."],
+    "press_features": ["Local TV spot", "City newspaper feature"],
+    "named_testimonials": [
+      { "quote": "Extremely polished and professional.", "attribution": "Named Talent Agency / event + venue" }
+    ],
+    "booking_contact": { "email": "booking@example.com", "phone": "+1-000-000-0000", "response_time": "1 business day" }
   }
 }
 ```
@@ -63,9 +71,10 @@ Progress:
 2. **Compliance Snapshot** — Insured ✅ / W-9 Ready ✅ / COI Available on Request ✅ (badge/checkmark format, not prose)
 3. **Configurations & Pricing Flexibility** — List scalable lineups so a buyer can immediately see they can fit any budget tier
 4. **Proven Clientele** — Named venues/brands (social proof for risk-averse buyers)
-5. **Repertoire Strength** — Song count + genre spread + name-drop core artists covered
-6. **Production Capability** — Self-contained PA, max capacity, max set length (answers "will this act cause logistical problems?")
-7. **Contact/Booking CTA**
+5. **Live Proof** — One live-performance video link + any press/TV features + a named testimonial (title + org). This is what converts a shortlist to a booking; a link to a real reel outweighs adjectives.
+6. **Repertoire Strength** — Song count + genre spread + name-drop core artists covered
+7. **Production Capability** — Self-contained PA, max capacity, max set length (answers "will this act cause logistical problems?")
+8. **Contact/Booking CTA** — booking email/phone + stated response time (e.g., "reply within 1 business day")
 
 ## Examples
 
@@ -85,6 +94,15 @@ Output: EPK leads with casino clientele names, headlines "Scalable from Duo to F
 - **Name-drop venues/brands, not just genres.** "Performed at Rivers Casino" beats "experienced casino performer."
 - **State capacity numbers plainly.** Max venue capacity and set length are logistics filters buyers use to shortlist/reject fast — don't bury them in prose.
 - **Keep it to 1-2 pages.** This audience skims; treat it like a vendor spec sheet, not a magazine feature.
+- **Lead with one live video, not a photo gallery.** A 60-second reel from a real stage answers "can they actually do it?" faster than any prose. Link it high; don't bury it.
+- **Never fabricate to fill a field.** If a compliance flag, testimonial, capacity number, or client name isn't real and verified, omit it — do not invent it. A single made-up venue or quote, once caught, poisons trust in a small regional circuit. Leave the strongest-available truth in place and flag the gap for the artist to fill.
+
+### Output format: one-sheet vs. web EPK
+
+Two delivery shapes share the same buyer-priority order:
+
+- **One-sheet (PDF/doc)** — the default. 1-2 pages, print-safe, forwardable to a committee. Everything above.
+- **Web EPK (single page)** — same order, but add: a **skimmable capability strip** near the top (formats range · max capacity · set length · song count + genre count · service area · response time) so a buyer gets the spec sheet in one glance; a **downloadable one-sheet + tech rider** for the committee; **structured data** (`schema.org` `MusicGroup` / `Person` / `FAQPage`) for search + AI discovery; **accessibility** (real `<label>`s, `alt` text, visible focus states, sufficient contrast); and **performance** (compress hero images — never inline a multi-hundred-KB base64 image into the HTML; lazy-load embeds). Keep one consistent brand system across every page.
 
 ## Common Pitfalls
 
